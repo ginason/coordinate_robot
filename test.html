@@ -6,10 +6,18 @@
     <style>
         .coordinate {
             width: 1000px;
-            margin: 0 auto;
+            height: 80px;
+            margin: 100px auto;
         }
         .robot {
-
+            width: 60px;
+            height: 60px;
+            border: 1px solid #4f9fcf;
+            background-color: #4f9fcf;
+            color: #ffffff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 60px;
         }
         .robot.left {
             float: left;
@@ -17,13 +25,24 @@
         .robot.right {
             float: right;
         }
+        .btnBox {
+            overflow: hidden;
+            width: 1000px;
+            margin: 0 auto;
+        }
         .btnContainer {
+            float: left;
             width: 200px;
             height: 40px;
-            overflow: hidden;
         }
         .btnContainer.style {
             margin-bottom: 50px;
+        }
+        .btnContainer.left {
+            float: left;
+        }
+        .btnContainer.right {
+            float: right;
         }
         .btn {
             float: left;
@@ -36,6 +55,7 @@
         .btn.style {
             margin-right: 50px;
         }
+
     </style>
 </head>
 <body>
@@ -44,13 +64,15 @@
         <div class="robot left" id="robot1">robot1</div>
         <div class="robot right" id="robot2">robot2</div>
     </div>
-    <div class="btnContainer style">
-        <div class="btn style" id="left1">Left1</div>
-        <div class="btn" id="right1">Right1</div>
-    </div>
-    <div class="btnContainer">
-        <div class="btn style" id="left2">Left2</div>
-        <div class="btn"  id="right2">Right2</div>
+    <div class="btnBox">
+        <div class="btnContainer style left">
+            <div class="btn style" id="left1">Left1</div>
+            <div class="btn" id="right1">Right1</div>
+        </div>
+        <div class="btnContainer right">
+            <div class="btn style" id="left2">Left2</div>
+            <div class="btn"  id="right2">Right2</div>
+        </div>
     </div>
 
 </div>
@@ -63,9 +85,10 @@
         var robot1 = $('#robot1');
         var robot2 = $('#robot2');
 
-        var location1 = robot1.offset( { left: 100, top: 100 } );
-        var location2 = robot2.offset( { left: 1000, top: 100 } );
-        console.log(location1);
+        // var location1 = robot1.offset( { left: 100, top: 100 } );
+        // var location2 = robot2.offset( { left: 1000, top: 100 } );
+        console.log(robot1.offset());
+        console.log(robot2.offset());
         var place1 = 100;
         var place2 = 1000;
         $('#left1').click(function(){
