@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <style>
+        .coordinate {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .robot {
+
+        }
+        .robot.left {
+            float: left;
+        }
+        .robot.right {
+            float: right;
+        }
+        .btnContainer {
+            width: 200px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .btnContainer.style {
+            margin-bottom: 50px;
+        }
+        .btn {
+            float: left;
+            width: 68px;
+            height: 38px;
+            border: 1px solid #563d7c;
+            line-height: 40px;
+            text-align: center;
+        }
+        .btn.style {
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="coordinate">
+        <div class="robot left" id="robot1">robot1</div>
+        <div class="robot right" id="robot2">robot2</div>
+    </div>
+    <div class="btnContainer style">
+        <div class="btn style" id="left1">Left1</div>
+        <div class="btn" id="right1">Right1</div>
+    </div>
+    <div class="btnContainer">
+        <div class="btn style" id="left2">Left2</div>
+        <div class="btn"  id="right2">Right2</div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        console.log('ready');
+        var left=0;
+        var right=1000;
+
+        var robot1 = $('#robot1');
+        var robot2 = $('#robot2');
+
+        var location1 = robot1.offset( { left: 100, top: 100 } );
+        var location2 = robot2.offset( { left: 1000, top: 100 } );
+        console.log(location1);
+        var place1 = 100;
+        var place2 = 1000;
+        $('#left1').click(function(){
+            left += 100;
+            robot1.offset( { left: place1 + left, top: 100 } );
+
+        });
+        $('#right1').click(function(){
+            left -= 100;
+            robot1.offset( { left: place1 + left, top: 100 } );
+        });
+
+        $('#left2').click(function(){
+            left += 100;
+            robot1.offset( { left: place2 + left, top: 100 } );
+
+        });
+        $('#right2').click(function(){
+            left -= 100;
+            robot1.offset( { left: place2 + left, top: 100 } );
+        });
+
+    });
+
+
+</script>
+</body>
+</html>
